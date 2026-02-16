@@ -1,0 +1,152 @@
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f9f0ff 0%, #e6f7ff 100%);
+            background-size: cover;
+            background-position: center;
+        }
+        .center-image {
+  display: block;
+  margin: 0 auto;
+  width: 50%; 
+  height: auto;
+}
+
+        .wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40vh;
+        }
+        .wave path {
+            fill: #fd5ae2;
+        }
+        
+       
+        
+        .icons {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fd5ae2;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .icon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+          
+        .icon-container a {
+            color: #fff;
+            text-decoration: none;
+           
+        }
+        .icon-container img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+        .content {
+            padding: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    // Display user info
+    document.getElementById('welcomeMessage').textContent = 
+        `Welcome, ${currentUser.firstName}!`;
+    
+    // Use pregnancy data
+    if (currentUser.dueDate) {
+        console.log('Due Date:', currentUser.dueDate);
+        console.log('LMP:', currentUser.lmpDate);
+    }
+    
+    // Logout button
+    document.getElementById('logoutBtn').addEventListener('click', function() {
+        window.userManager.logout();
+    });
+
+
+// Update user profile
+function updateProfile() {
+    const success = window.userManager.updateUserProfile({
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value
+    });
+    
+    if (success) {
+        alert('Profile updated successfully!');
+    }
+}
+
+// Save pregnancy data
+function savePregnancyData() {
+    const pregnancyData = {
+        dueDate: document.getElementById('dueDate').value,
+        lmpDate: document.getElementById('lmpDate').value,
+        notes: document.getElementById('notes').value
+    };
+    
+    const success = window.userManager.savePregnancyData(pregnancyData);
+    
+    if (success) {
+        alert('Pregnancy data saved!');
+    }
+}
+</script>
+
+    <svg class="wave" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path d="M0,256L48,229.3C96,203,192,149,288,122.7C384,96,480,96,576,117.3C672,139,768,181,864,192C960,203,1056,181,1152,170.7C1248,160,1344,160,1392,160L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+    </svg>
+   
+    <div class="header">
+        <h1>Home Page</h1>
+    </div>
+    <div class="content">
+  <h2>Welcome Home.</h2>
+  <p>Hi Bestie!. I am Here to guide you throgh your Pregnancy Journey❤️</p>
+  
+  <img src="home.jpg
+  " alt="Your Image" style="display: block; margin: 0 auto; width: 250px; height: 250px; border-radius: 50%; object-fit: cover;">
+</div>       
+    </div>
+    <div class="icons">
+        <div class="icon-container">
+            <a href="New Tracker 1.html"><img src="tracker.jpg" alt="Fetus Tracker"></a>
+            <a href="New Tracker 1.html">Fetus Tracker</a>
+        </div>
+        <div class="icon-container">
+            <a href="./mychatbot.html"><img src="Chatbot image.jpg" alt="Chatbot"></a>
+            <a href="./mychatbot.html">Chatbot</a>
+        </div>
+         <div class="icon-container">
+            <a href="A&R.html"><img src="Advise.jpg" alt="Advise and Recommendation"></a>
+            <a href="A&R.html">Advise and Recommendation</a>
+        </div>
+        <div class="icon-container">
+            <a href="new user profile.html"><img src="profile.jpg" alt="User Profile"></a>
+            <a href="new user profile.html">Profile</a>
+        </div>
+    </div>
+</body>
+</html> 
